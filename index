@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mijn Kunst Portfolio</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: white;
+            padding: 40px;
+        }
+        img.profiel {
+            width: 200px;
+            border-radius: 50%;
+        }
+        section {
+            padding: 40px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .kunstwerk {
+            margin-bottom: 30px;
+        }
+        .kunstwerk img {
+            width: 300px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Jouw Naam</h1>
+    <img src="profielfoto.jpg" class="profiel">
+    <p>Hier komt een korte beschrijving over jezelf als kunstenaar.</p>
+</header>
+
+<section>
+    <h2>Schilderijen</h2>
+
+    <div class="kunstwerk">
+        <img src="schilderij1.jpg">
+        <p>Titel van het werk – korte beschrijving.</p>
+    </div>
+
+    <div class="kunstwerk">
+        <img src="schilderij2.jpg">
+        <p>Titel van het werk – korte beschrijving.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Illustraties</h2>
+
+    <div class="kunstwerk">
+        <img src="illustratie1.jpg">
+        <p>Titel – beschrijving.</p>
+    </div>
+</section>
+
+</body>
+</html>
