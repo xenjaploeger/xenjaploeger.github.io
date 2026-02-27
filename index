@@ -36,8 +36,8 @@
 <body>
 
 <header>
-    <h1>Jouw Naam</h1>
-    <img src="profielfoto.jpg" class="profiel">
+    <h1>Xenja Ploeger</h1>
+    <img src="profielfoto.JPG" class="profiel">
     <p>Hier komt een korte beschrijving over jezelf als kunstenaar.</p>
 </header>
 
