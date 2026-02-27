@@ -12,10 +12,10 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fafafa;
     color: #222;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* MENU */
@@ -23,18 +23,27 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(248,248,248,0.95);
+    background: rgba(250,250,250,0.95);
     backdrop-filter: blur(5px);
-    padding: 15px 0;
-    text-align: center;
     border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 10px;
     text-decoration: none;
     color: #555;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
     letter-spacing: 1px;
 }
 
@@ -42,18 +51,46 @@ nav a:hover {
     color: #000;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 120px 20px 60px 20px;
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #555;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 /* Intro */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 160px 20px 80px 20px;
+}
+
 .intro {
     display: flex;
     gap: 60px;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 100px;
 }
 
 .intro-text {
@@ -62,8 +99,17 @@ nav a:hover {
 }
 
 .intro-text h1 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.intro-text p {
+    font-size: 17px;
+    max-width: 500px;
+    font-weight: 300;
+    color: #555;
 }
 
 .intro-image {
@@ -76,67 +122,135 @@ nav a:hover {
     width: 100%;
     max-width: 350px;
     border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 /* Sections */
 section {
     margin-top: 120px;
+    padding-bottom: 60px;
 }
 
 section h2 {
-    font-size: 22px;
-    margin-bottom: 30px;
-    font-weight: normal;
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-weight: 300;
     letter-spacing: 1px;
+    text-align: center;
+    color: #333;
 }
 
 /* Gallery */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    gap: 35px;
+}
+
+.gallery a {
+    position: relative;
+    display: block;
 }
 
 .gallery img {
     width: 100%;
     border-radius: 6px;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .gallery img:hover {
-    opacity: 0.8;
+    opacity: 0.85;
+    transform: translateY(-3px);
 }
 
 /* Lightbox */
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 999;
+    z-index: 9999;
     padding-top: 60px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.95);
 }
 
 .lightbox img {
     display: block;
     margin: auto;
     max-width: 90%;
-    max-height: 80vh;
+    max-height: 70vh;
+    border-radius: 4px;
+}
+
+.lightbox p {
+    text-align: center;
+    color: #eee;
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: 300;
 }
 
 .lightbox:target {
     display: block;
 }
 
+/* Contact */
+.contact {
+    background: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    margin-top: 60px;
+}
+
+.contact h2 {
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.contact a {
+    display: inline-block;
+    margin: 10px 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.contact a:hover {
+    color: #000;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 60px 20px;
     font-size: 14px;
     color: #777;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-image {
+        text-align: center;
+    }
 }
 </style>
 </head>
@@ -144,77 +258,105 @@ footer {
 <body>
 
 <nav>
-    <a href="#expo">Expositie 2024</a>
-    <a href="#botanisch">Botanisch</a>
-    <a href="#portretten">Portretten</a>
-    <a href="#landschappen">Landschappen</a>
-    <a href="#schetsboeken">Schetsboeken</a>
+    <div class="nav-container">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu" id="navMenu">
+            <a href="#expo">Expositie 2024</a>
+            <a href="#botanisch">Botanisch</a>
+            <a href="#portretten">Portretten</a>
+            <a href="#landschappen">Landschappen</a>
+            <a href="#schetsboeken">Schetsboeken</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
 </nav>
 
 <div class="container">
 
 <div class="intro">
     <div class="intro-text">
-        <h1>Jouw Naam</h1>
+        <h1>Xenja Ploeger</h1>
         <p>
             Hier komt jouw beschrijving als kunstenaar.
             Vertel iets over je werkwijze, inspiratie en materialen.
         </p>
     </div>
     <div class="intro-image">
-        <img src="profielfoto.jpg" alt="">
+        <img src="profielfoto.JPG" alt="Profielfoto">
     </div>
 </div>
 
 <section id="expo">
 <h2>Expositie 2024</h2>
 <div class="gallery">
-    <a href="#img1"><img src="expo1.jpg"></a>
-    <a href="#img2"><img src="expo2.jpg"></a>
+    <a href="#img1"><img src="expo1.jpg" alt=""><span>Expositie 1</span></a>
+    <a href="#img2"><img src="expo2.jpg" alt=""><span>Expositie 2</span></a>
 </div>
 </section>
 
 <section id="botanisch">
 <h2>Botanische tekeningen</h2>
 <div class="gallery">
-    <a href="#img3"><img src="botanisch1.jpg"></a>
+    <a href="#img3"><img src="botanisch1.jpg" alt=""><span>Botanisch 1</span></a>
+    <a href="#img7"><img src="botanisch2.jpg" alt=""><span>Botanisch 2</span></a>
 </div>
 </section>
 
 <section id="portretten">
 <h2>Portretten</h2>
 <div class="gallery">
-    <a href="#img4"><img src="portret1.jpg"></a>
+    <a href="#img4"><img src="portret1.jpg" alt=""><span>Portret 1</span></a>
 </div>
 </section>
 
 <section id="landschappen">
 <h2>Landschappen</h2>
 <div class="gallery">
-    <a href="#img5"><img src="landschap1.jpg"></a>
+    <a href="#img5"><img src="landschap1.jpg" alt=""><span>Landschap 1</span></a>
 </div>
 </section>
 
 <section id="schetsboeken">
 <h2>Schetsboeken</h2>
 <div class="gallery">
-    <a href="#img6"><img src="schets1.jpg"></a>
+    <a href="#img6"><img src="schets1.jpg" alt=""><span>Schets 1</span></a>
 </div>
 </section>
 
 </div>
 
-<!-- Lightbox afbeeldingen -->
-<div id="img1" class="lightbox"><a href="#"><img src="expo1.jpg"></a></div>
-<div id="img2" class="lightbox"><a href="#"><img src="expo2.jpg"></a></div>
-<div id="img3" class="lightbox"><a href="#"><img src="botanisch1.jpg"></a></div>
-<div id="img4" class="lightbox"><a href="#"><img src="portret1.jpg"></a></div>
-<div id="img5" class="lightbox"><a href="#"><img src="landschap1.jpg"></a></div>
-<div id="img6" class="lightbox"><a href="#"><img src="schets1.jpg"></a></div>
+<!-- Contact sectie -->
+<section class="contact" id="contact">
+<h2>Contact</h2>
+<a href="mailto:privemail@example.com">Privé Mail</a>
+<a href="mailto:werkmail@example.com">Werk Mail</a>
+<a href="https://linkedin.com/in/jouwprofiel" target="_blank">LinkedIn</a>
+</section>
 
+<!-- Lightbox -->
+<div id="img1" class="lightbox"><a href="#"><img src="expo1.jpg"></a><p>Expositie 1</p></div>
+<div id="img2" class="lightbox"><a href="#"><img src="expo2.jpg"></a><p>Expositie 2</p></div>
+<div id="img3" class="lightbox"><a href="#"><img src="botanisch1.jpg"></a><p>Botanisch 1</p></div>
+<div id="img7" class="lightbox"><a href="#"><img src="botanisch2.jpg"></a><p>Botanisch 2</p></div>
+<div id="img4" class="lightbox"><a href="#"><img src="portret1.jpg"></a><p>Portret 1</p></div>
+<div id="img5" class="lightbox"><a href="#"><img src="landschap1.jpg"></a><p>Landschap 1</p></div>
+<div id="img6" class="lightbox"><a href="#"><img src="schets1.jpg"></a><p>Schets 1</p></div>
+<!-- Scroll to top knop -->
+<button id="scrollTopBtn" title="Scroll naar boven">↑</button>
 <footer>
 © 2026 Jouw Naam
 </footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("navMenu");
+    menu.classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
