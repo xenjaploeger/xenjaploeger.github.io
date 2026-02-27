@@ -6,6 +6,10 @@
 <title>Portfolio</title>
 
 <style>
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,13 +18,37 @@ body {
     line-height: 1.6;
 }
 
+/* MENU */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(248,248,248,0.95);
+    backdrop-filter: blur(5px);
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: #000;
+}
+
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 120px 20px 60px 20px;
 }
 
-/* Intro sectie */
+/* Intro */
 .intro {
     display: flex;
     gap: 60px;
@@ -38,11 +66,6 @@ body {
     margin-bottom: 20px;
 }
 
-.intro-text p {
-    font-size: 16px;
-    max-width: 500px;
-}
-
 .intro-image {
     flex: 1;
     min-width: 280px;
@@ -55,9 +78,9 @@ body {
     border-radius: 8px;
 }
 
-/* Secties */
+/* Sections */
 section {
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 section h2 {
@@ -67,7 +90,7 @@ section h2 {
     letter-spacing: 1px;
 }
 
-/* Galerij */
+/* Gallery */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -77,11 +100,36 @@ section h2 {
 .gallery img {
     width: 100%;
     border-radius: 6px;
+    cursor: pointer;
     transition: opacity 0.3s ease;
 }
 
 .gallery img:hover {
     opacity: 0.8;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox img {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+}
+
+.lightbox:target {
+    display: block;
 }
 
 footer {
@@ -95,70 +143,74 @@ footer {
 
 <body>
 
+<nav>
+    <a href="#expo">Expositie 2024</a>
+    <a href="#botanisch">Botanisch</a>
+    <a href="#portretten">Portretten</a>
+    <a href="#landschappen">Landschappen</a>
+    <a href="#schetsboeken">Schetsboeken</a>
+</nav>
+
 <div class="container">
 
-    <div class="intro">
-        <div class="intro-text">
-            <h1>Xenja Ploeger</h1>
-            <p>
-                Hier komt jouw beschrijving als kunstenaar.
-                Vertel iets over je werkwijze, inspiratie en materialen.
-                Houd het rustig en persoonlijk.
-            </p>
-        </div>
-
-        <div class="intro-image">
-            <img src="profielfoto.JPG" alt="Profielfoto">
-        </div>
+<div class="intro">
+    <div class="intro-text">
+        <h1>Jouw Naam</h1>
+        <p>
+            Hier komt jouw beschrijving als kunstenaar.
+            Vertel iets over je werkwijze, inspiratie en materialen.
+        </p>
     </div>
+    <div class="intro-image">
+        <img src="profielfoto.jpg" alt="">
+    </div>
+</div>
 
+<section id="expo">
+<h2>Expositie 2024</h2>
+<div class="gallery">
+    <a href="#img1"><img src="expo1.jpg"></a>
+    <a href="#img2"><img src="expo2.jpg"></a>
+</div>
+</section>
 
-    <section>
-        <h2>Expositie 2024</h2>
-        <div class="gallery">
-            <img src="expo1.jpg" alt="">
-            <img src="expo2.jpg" alt="">
-            <img src="expo3.jpg" alt="">
-        </div>
-    </section>
+<section id="botanisch">
+<h2>Botanische tekeningen</h2>
+<div class="gallery">
+    <a href="#img3"><img src="botanisch1.jpg"></a>
+</div>
+</section>
 
+<section id="portretten">
+<h2>Portretten</h2>
+<div class="gallery">
+    <a href="#img4"><img src="portret1.jpg"></a>
+</div>
+</section>
 
-    <section>
-        <h2>Botanische tekeningen</h2>
-        <div class="gallery">
-            <img src="botanisch1.jpg" alt="">
-            <img src="botanisch2.jpg" alt="">
-        </div>
-    </section>
+<section id="landschappen">
+<h2>Landschappen</h2>
+<div class="gallery">
+    <a href="#img5"><img src="landschap1.jpg"></a>
+</div>
+</section>
 
-
-    <section>
-        <h2>Portretten</h2>
-        <div class="gallery">
-            <img src="portret1.jpg" alt="">
-            <img src="portret2.jpg" alt="">
-        </div>
-    </section>
-
-
-    <section>
-        <h2>Landschappen</h2>
-        <div class="gallery">
-            <img src="landschap1.jpg" alt="">
-            <img src="landschap2.jpg" alt="">
-        </div>
-    </section>
-
-
-    <section>
-        <h2>Schetsboeken</h2>
-        <div class="gallery">
-            <img src="schets1.jpg" alt="">
-            <img src="schets2.jpg" alt="">
-        </div>
-    </section>
+<section id="schetsboeken">
+<h2>Schetsboeken</h2>
+<div class="gallery">
+    <a href="#img6"><img src="schets1.jpg"></a>
+</div>
+</section>
 
 </div>
+
+<!-- Lightbox afbeeldingen -->
+<div id="img1" class="lightbox"><a href="#"><img src="expo1.jpg"></a></div>
+<div id="img2" class="lightbox"><a href="#"><img src="expo2.jpg"></a></div>
+<div id="img3" class="lightbox"><a href="#"><img src="botanisch1.jpg"></a></div>
+<div id="img4" class="lightbox"><a href="#"><img src="portret1.jpg"></a></div>
+<div id="img5" class="lightbox"><a href="#"><img src="landschap1.jpg"></a></div>
+<div id="img6" class="lightbox"><a href="#"><img src="schets1.jpg"></a></div>
 
 <footer>
 © 2026 Jouw Naam
