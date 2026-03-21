@@ -161,7 +161,14 @@ section h2 {
     text-align: center;
     color: #333;
 }
-    
+    section h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #ff6b8a;
+    margin: 10px auto 0 auto;
+}
 .section-intro {
     max-width: 600px;
     margin: -20px auto 40px auto;
