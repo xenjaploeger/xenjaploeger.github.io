@@ -253,6 +253,46 @@ footer {
     color: #777;
 }
 
+/* Tweede intro / about sectie */
+.about-section {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f0f0f0; /* subtiel verschil */
+    padding: 100px 20px;
+    margin-top: 40px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+    
 /* Responsive */
 @media(max-width: 768px) {
     .hamburger {
@@ -272,6 +312,14 @@ footer {
 
     .intro-image {
         text-align: center;
+    }
+    .about-section {
+    flex-direction: column;
+    text-align: center;
+    }
+
+.about-image {
+    text-align: center;
     }
 }
 </style>
@@ -311,7 +359,25 @@ footer {
         <img src="profielfoto.JPG" alt="Profielfoto">
     </div>
 </div>
+    
+<div class="about-section">
+    <div class="about-image">
+        <img src="achtergrondfoto.jpg" alt="Werkproces of atelier">
+    </div>
 
+    <div class="about-text">
+        <h2>Over mijn werk</h2>
+        <p>
+            Hier kun je uitgebreider vertellen over je achtergrond als kunstenaar.
+            Denk aan je opleiding, inspiratiebronnen en werkwijze.
+        </p>
+        <p>
+            Je kunt hier ook ingaan op thema’s in je werk, materialen die je gebruikt,
+            en wat je probeert over te brengen.
+        </p>
+    </div>
+</div>
+    
 <section id="expo">
   <h2>Expositie 2024 "verlaten"</h2>
   <div class="gallery">
