@@ -202,7 +202,13 @@ section h2 {
     opacity: 0.85;
     transform: translateY(-3px);
 }
-
+.beschrijving {
+  display: block;      /* zorgt dat hij onder de foto komt */
+  color: black;        /* zwarte tekst */
+  margin-top: 5px;     /* klein beetje ruimte */
+  font-size: 14px;     /* optioneel */
+}
+    
 /* Lightbox */
 .lightbox {
     display: none;
@@ -405,7 +411,7 @@ footer {
     gepersonaliseerde plaatjes en kunstwerken zoveel brengen binnen je werk.
 </p>
 <div class="gallery">
-    <a href="#img50"><img src="images/IMG_4734.JPG" alt=""><span>aquarel</span></a>
+    <a href="#img50"><img src="images/IMG_4734.JPG" alt=""></a><span class="beschrijving">aquarel</span>
     <a href="#img51"><img src="images/IMG_4735.JPG" alt=""><span>aquarel</span></a>
     <a href="#img52"><img src="images/IMG_4736.JPG" alt=""><span>aquarel</span></a>
     <a href="#img53"><img src="images/IMG_4737.JPG" alt=""><span>aquarel</span></a>
